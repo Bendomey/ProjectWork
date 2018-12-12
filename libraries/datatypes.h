@@ -23,6 +23,7 @@ using namespace std;
 struct User{
     string first_name;
     string last_name;
+    string sex;
     string index_number;
     string pin;
     string level;

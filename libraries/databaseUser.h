@@ -54,15 +54,16 @@ Database_User::~Database_User()
 
 bool Database_User::createUser(User user)
 {
-    string data[6];
+    string data[7];
     data[0] = "First Name: " + user.first_name;
     data[1] = "Last Name: " + user.last_name;
-    data[2] = "Index Number: " + user.index_number;
-    data[3] = "Pin: " + user.pin;
-    data[4] = "Department: " + user.department;
-    data[5] = "Level: " + user.level;
+    data[2] = "Sex: " + user.sex;
+    data[3] = "Index Number: " + user.index_number;
+    data[4] = "Pin: " + user.pin;
+    data[5] = "Department: " + user.department;
+    data[6] = "Level: " + user.level;
 
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 7; i++)
     {
         afile << data[i] << endl;
     }
@@ -78,12 +79,13 @@ bool Database_User::readUser(User user)
     string data[6];
     data[0] = "First Name: " + user.first_name;
     data[1] = "Last Name: " + user.last_name;
-    data[2] = "Index Number: " + user.index_number;
-    data[3] = "Pin: " + user.pin;
-    data[4] = "Department: " + user.department;
-    data[5] = "Level: " + user.level;
+    data[2] = "Sex: " + user.sex;
+    data[3] = "Index Number: " + user.index_number;
+    data[4] = "Pin: " + user.pin;
+    data[5] = "Department: " + user.department;
+    data[6] = "Level: " + user.level;
     outfile << "DETAILS OF " << user.first_name << " " << user.last_name << endl;
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 7; i++)
     {
         afile >> data[i];
         outfile << data[i] << endl;
