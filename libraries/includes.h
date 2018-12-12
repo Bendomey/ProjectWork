@@ -21,6 +21,7 @@
 #include "../source_files/students.cpp"
 #include "../source_files/staffs.cpp"
 #include "../source_files/admin.cpp"
+#include "../source_files/auth.cpp"
 
 // namespaces
 using namespace std;
