@@ -15,7 +15,7 @@
 main(int argc, char const *argv[])
 {
     cout << "Hello world\n";
-    staffs::staff ben;
+    admin::Admin ben;
     ben.set_first_name("Ben");
     cout << ben.get_first_name();
     cout << ben.get_status();

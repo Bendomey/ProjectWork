@@ -5,8 +5,8 @@
  * @Last modified time: 2018-12-11T20:22:31-05:00
  */
 
-#ifndef STAFF_H
-#define STAFF_H
+#ifndef ADMIN_H
+#define ADMIN_H
 
 #include <iostream>
 #include <string>
@@ -15,27 +15,24 @@
 using namespace std;
 
 /**
- * this class inherits from the user class, it takes the staff-end
+ * this class inherits from the user class, it takes the admin-end
  */
 
-namespace staffs
+namespace admin
 {
-    class staff : public UserType
+    class Admin : public UserType
     {
         public:
-            staff();
+            Admin();
             // setters
             void set_status();
-            void set_department(string);
 
         // getters
             int get_status();
-            string get_department();
 
         private:
             int status;
-            string department;
     };
-} // namespace staffs
+} // namespace students
 
-#endif //STAFF_H
+#endif //ADMIN_H

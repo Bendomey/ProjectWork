@@ -20,6 +20,7 @@
 #include "../source_files/User.cpp"
 #include "../source_files/students.cpp"
 #include "../source_files/staffs.cpp"
+#include "../source_files/admin.cpp"
 
 // namespaces
 using namespace std;
