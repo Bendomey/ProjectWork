@@ -5,8 +5,8 @@
  * @Last modified time: 2018-12-11T20:22:31-05:00
  */
 
-#ifndef STUDENT_H
-#define STUDENT_H
+#ifndef STAFF_H
+#define STAFF_H
 
 #include <iostream>
 #include <string>
@@ -18,27 +18,24 @@ using namespace std;
  * this class inherits from the user class, it takes the student-end
  */
 
-namespace students
+namespace staffs
 {
-    class student : public UserType
+    class staff : public UserType
     {
         public:
-            student();
+            staff();
             // setters
             void set_status();
-            void set_level(string);
             void set_department(string);
 
         // getters
             int get_status();
-            string get_level();
             string get_department();
 
         private:
             int status;
-            string level;
             string department;
     };
-} // namespace students
+} // namespace staffs
 
-#endif //STUDENT_H
+#endif //STAFF_H

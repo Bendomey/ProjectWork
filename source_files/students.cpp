@@ -3,10 +3,8 @@
 #include "../libraries/students.h"
 using namespace std;
 
-
-
-
-namespace students{
+namespace students
+{
 
     student::student()
     {
@@ -23,12 +21,11 @@ namespace students{
     {
         this->level = level;
     }
-    
-    void student::set_department(string dept) 
+
+    void student::set_department(string dept)
     {
         this->department = dept;
     }
-
 
     // getters
     int student::get_status()
@@ -45,5 +42,5 @@ namespace students{
     {
         return this->department;
     }
-    
-}
+
+} // namespace students
