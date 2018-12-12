@@ -23,6 +23,7 @@ main(int argc, char const *argv[])
     user.pin = "59779";
     user.department = "Comp Science";
     user.level = "200";
-    kofi.create(user);
+    kofi.createUser(user);
+    kofi.readUser(user);
     return 0;
 }
