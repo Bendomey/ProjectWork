@@ -16,9 +16,11 @@
 #include <string>
 #include "datatypes.h"
 #include "databaseUser.h"
+#include "../source_files/courses.cpp"
 
 
 
 using namespace std;
+using namespace course;
 
 #endif //INCLUDES_H

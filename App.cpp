@@ -15,15 +15,6 @@
 main(int argc, char const *argv[])
 {
     cout << "Hello world\n";
-    User user;
-    Database_User kofi;
-    user.first_name = "Ben";
-    user.last_name = "Domey";
-    user.index_number = "10670196";
-    user.pin = "59779";
-    user.department = "Comp Science";
-    user.level = "200";
-    kofi.createUser(user);
-    kofi.readUser(user);
+    courses Math;
     return 0;
 }
