@@ -15,6 +15,8 @@
 main(int argc, char const *argv[])
 {
     cout << "Hello world\n";
-    courses Math;
+    students::student ben;
+    ben.set_first_name("Ben");
+    cout << ben.get_first_name();
     return 0;
 }

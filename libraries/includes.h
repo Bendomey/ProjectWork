@@ -18,6 +18,7 @@
 #include "databaseUser.h"
 #include "../source_files/courses.cpp"
 #include "../source_files/User.cpp"
+#include "../source_files/students.cpp"
 
 // namespaces
 using namespace std;
