@@ -14,6 +14,7 @@
  */
 #include <iostream>
 #include <string>
+#include "datatypes.h"
 #include "databaseUser.h"
 
 
