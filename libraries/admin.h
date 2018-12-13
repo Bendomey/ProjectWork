@@ -27,7 +27,7 @@ namespace admin
             // setters
             void set_status();
 
-        // getters
+            // getters
             int get_status();
 
         private:
