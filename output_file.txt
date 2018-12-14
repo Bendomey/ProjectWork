@@ -1,7 +1,0 @@
-DETAILS OF Ben Domey
-First Name: Ben
-Last Name: Domey
-Index Number: 10670196
-Pin: 59779
-Department: Comp Science
-Level: 200

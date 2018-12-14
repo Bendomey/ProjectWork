@@ -15,9 +15,17 @@
 main(int argc, char const *argv[])
 {
     cout << "Hello world\n";
-    admin::Admin ben;
-    ben.set_first_name("Ben");
-    cout << ben.get_first_name();
-    cout << ben.get_status();
+    User user;
+    user.first_name = "Ben";
+    user.last_name = "Domey";
+    user.level =  "200";
+    user.sex = "Male";
+    user.department = "Computer Science";
+    user.index_number = "10670196";
+    user.pin = "12345";
+
+    Database_User db;
+    // db.createUser(user);
+    db.readUser(user,"10670196");
     return 0;
 }

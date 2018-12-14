@@ -1,21 +1,9 @@
+Student 1
 First Name: Ben
 Last Name: Domey
+Sex: Male
 Index Number: 10670196
-Pin: 59779
-Department: Comp Science
+Pin: 12345
+Department: Computer Science
 Level: 200
-4202865
-First Name: Ben
-Last Name: Domey
-Index Number: 10670196
-Pin: 59779
-Department: Comp Science
-Level: 200
-4203489
-First Name: Ben
-Last Name: Domey
-Index Number: 10670196
-Pin: 59779
-Department: Comp Science
-Level: 200
-4203505
+1

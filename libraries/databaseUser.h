@@ -20,14 +20,12 @@ class Database_User
     fstream afile;
     // creating an output to a file when read  from previous file
     ofstream outfile;
-    // counter to check the  entering of the data
-    int count;
 
   public:
     Database_User();
     ~Database_User();
     bool createUser(User);
-    bool readUser(User);
+    bool readUser(User,string);
 };
 
 /**
@@ -54,6 +52,8 @@ Database_User::~Database_User()
 
 bool Database_User::createUser(User user)
 {
+        // counter to check the  entering of the data
+    int count = 0;
     string data[7];
     data[0] = "First Name: " + user.first_name;
     data[1] = "Last Name: " + user.last_name;
@@ -63,8 +63,9 @@ bool Database_User::createUser(User user)
     data[5] = "Department: " + user.department;
     data[6] = "Level: " + user.level;
 
+    afile << "Student " << count+1 << endl;
     for (int i = 0; i < 7; i++)
-    {
+    {   
         afile << data[i] << endl;
     }
     cout << "Written to file" << endl;
@@ -73,7 +74,7 @@ bool Database_User::createUser(User user)
     return true;
 }
 
-bool Database_User::readUser(User user)
+bool Database_User::readUser(User user, string search_id)
 {
     
     string data[6];
@@ -84,13 +85,22 @@ bool Database_User::readUser(User user)
     data[4] = "Pin: " + user.pin;
     data[5] = "Department: " + user.department;
     data[6] = "Level: " + user.level;
-    outfile << "DETAILS OF " << user.first_name << " " << user.last_name << endl;
-    for (int i = 0; i < 7; i++)
-    {
-        afile >> data[i];
-        outfile << data[i] << endl;
+    
+    if (search_id == user.index_number) {
+        cout <<"User found\n";
+        return true;
+    //     outfile << "DETAILS OF " << user.first_name << " " << user.last_name << endl;
+    // for (int i = 0; i < 7; i++)
+    // {
+    //     afile >> data[i];
+    //     outfile << data[i] << endl;
 
+    // }
     }
-    return true;
+
+        cout << "user not found";
+    
+    
+    return false;
 }
 #endif //DATABASE_USER_H
