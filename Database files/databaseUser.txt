@@ -1,4 +1,1 @@
-FirstName   LastName   Level   Sex   Department   IndexNumber   Pin 
- 
-
-Benjamin    Domey    200    Male    Computer Science    10670196    12345    
+kwame    dome    200    m    come    1    112233    1234    

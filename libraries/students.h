@@ -30,12 +30,12 @@ namespace students
             void set_department(string);
 
         // getters
-            int get_status();
+            string get_status();
             string get_level();
             string get_department();
 
         private:
-            int status;
+            string status;
             string level;
             string department;
     };

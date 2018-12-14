@@ -8,5 +8,14 @@ using namespace std;
 
 namespace auth{
 
-    
+    bool Auth::signIn(string id, string pin)
+    {
+        Database_User db;
+        if(db.compareUser(id,pin))
+        {
+            return true;
+        }else
+            return false;
+        
+    }
 }

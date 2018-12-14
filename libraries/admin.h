@@ -28,10 +28,10 @@ namespace admin
             void set_status();
 
             // getters
-            int get_status();
+            string get_status();
 
         private:
-            int status;
+            string status;
     };
 } // namespace students
 

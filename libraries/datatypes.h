@@ -6,7 +6,7 @@
  */
 
  /**
- * this file contains the all datatypes of the application
+ * this file contains all datatypes of the application
  */
 
 #ifndef DATATYPES_H
@@ -26,9 +26,20 @@ struct User{
     string sex;
     string index_number;
     string pin;
+    string status;
     string level;
     string department;
 
+};
+
+struct Course{
+    string CourseCode;
+	string CourseTitle;
+	string CourseLecturer;
+	string Level;
+	int CourseScore;
+	string CourseGrade;
+	int Semester;
 };
 
 

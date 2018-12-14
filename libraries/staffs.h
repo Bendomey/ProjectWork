@@ -29,11 +29,11 @@ namespace staffs
             void set_department(string);
 
         // getters
-            int get_status();
+            string get_status();
             string get_department();
 
         private:
-            int status;
+            string status;
             string department;
     };
 } // namespace staffs

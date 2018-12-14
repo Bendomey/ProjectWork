@@ -18,7 +18,7 @@ namespace admin
     }
 
     // getters
-    int Admin::get_status()
+    string Admin::get_status()
     {
         return this->status;
     }

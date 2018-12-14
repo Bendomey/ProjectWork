@@ -28,7 +28,7 @@ namespace students
     }
 
     // getters
-    int student::get_status()
+    string student::get_status()
     {
         return this->status;
     }

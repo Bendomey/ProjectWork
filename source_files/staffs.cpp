@@ -23,7 +23,7 @@ namespace staffs
     }
 
     // getters
-    int staff::get_status()
+    string staff::get_status()
     {
         return this->status;
     }

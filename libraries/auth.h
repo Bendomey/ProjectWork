@@ -16,7 +16,7 @@ using namespace std;
 namespace auth{
     class Auth{
         public:
-            
+            bool signIn(string,string);
 
         private:
             string index_number;
