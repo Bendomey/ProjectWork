@@ -52,25 +52,22 @@ Database_User::~Database_User()
 
 bool Database_User::createUser(User user)
 {
-        // counter to check the  entering of the data
-    int count = 0;
-    string data[7];
-    data[0] = "First Name: " + user.first_name;
-    data[1] = "Last Name: " + user.last_name;
-    data[2] = "Sex: " + user.sex;
-    data[3] = "Index Number: " + user.index_number;
-    data[4] = "Pin: " + user.pin;
-    data[5] = "Department: " + user.department;
-    data[6] = "Level: " + user.level;
 
-    afile << "Student " << count+1 << endl;
+    string data[7];
+    data[0] = user.first_name;
+    data[1] = user.last_name;
+    data[2] = user.level;
+    data[3] = user.sex;
+    data[4] = user.department;
+    data[5] = user.index_number;
+    data[6] = user.pin;
+
     for (int i = 0; i < 7; i++)
     {   
-        afile << data[i] << endl;
+        afile << data[i] << "    ";
     }
-    cout << "Written to file" << endl;
-    count++;
-    afile << count << endl;
+    afile << endl;
+    cout << "Written to file successfully" << endl;
     return true;
 }
 
@@ -82,9 +79,8 @@ bool Database_User::readUser(User user, string search_id)
     data[1] = "Last Name: " + user.last_name;
     data[2] = "Sex: " + user.sex;
     data[3] = "Index Number: " + user.index_number;
-    data[4] = "Pin: " + user.pin;
-    data[5] = "Department: " + user.department;
-    data[6] = "Level: " + user.level;
+    data[4] = "Department: " + user.department;
+    data[5] = "Level: " + user.level;
     
     if (search_id == user.index_number) {
         cout <<"User found\n";

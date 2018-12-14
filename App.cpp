@@ -16,7 +16,7 @@ main(int argc, char const *argv[])
 {
     cout << "Hello world\n";
     User user;
-    user.first_name = "Ben";
+    user.first_name = "Benjamin";
     user.last_name = "Domey";
     user.level =  "200";
     user.sex = "Male";
@@ -25,7 +25,7 @@ main(int argc, char const *argv[])
     user.pin = "12345";
 
     Database_User db;
-    // db.createUser(user);
-    db.readUser(user,"10670196");
+    db.createUser(user);
+    // db.readUser(user,"10670196");
     return 0;
 }

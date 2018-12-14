@@ -1,9 +1,4 @@
-Student 1
-First Name: Ben
-Last Name: Domey
-Sex: Male
-Index Number: 10670196
-Pin: 12345
-Department: Computer Science
-Level: 200
-1
+FirstName   LastName   Level   Sex   Department   IndexNumber   Pin 
+ 
+
+Benjamin    Domey    200    Male    Computer Science    10670196    12345    
