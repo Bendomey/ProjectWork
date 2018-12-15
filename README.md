@@ -19,4 +19,8 @@ project work
  - status of 3
 
 
- tommorrow working on 
+ tommorrow working on courses database
+ one file  for containing all courses name added by the staff
+ files containing each file and its marks or something
+
+ how to search for a  user in a file
