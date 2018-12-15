@@ -1,1 +1,1 @@
-kwame    dome    200    m    come    1    112233    1234    
+Kwame  Dome  200  Male  computerScience  2  112233  1234

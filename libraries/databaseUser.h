@@ -23,16 +23,17 @@ class Database_User
 
   public:
     bool createUser(User);
-    bool readUser(User,string);
+    bool readUser(string);
     bool udpdateUser(User,string);
     bool compareUser(string,string);
-    string returnStatus(string id);
+    string returnStatus(string);
+    string returnName(string);
 };
 
 
 bool Database_User::createUser(User user)
 {
-    afile.open("Database files/databaseUser.txt", ios::app | ios::out);
+    afile.open("Database files/databaseUser.txt", ios::out | ios::app);
 
     string data[8];
     data[0] = user.first_name;
@@ -46,7 +47,7 @@ bool Database_User::createUser(User user)
 
     for (int i = 0; i < 8; i++)
     {   
-        afile << data[i] << "    ";
+        afile << data[i] << "  ";
     }
     afile << endl;
     afile.close();
@@ -55,11 +56,11 @@ bool Database_User::createUser(User user)
     return true;
 }
 
-bool Database_User::readUser(User user, string search_id)
+bool Database_User::readUser(string search_id)
 {
-    afile.open("Database files/databaseUser.txt");
+    afile.open("Database files/databaseUser.txt",ios::in);
     outfile.open("output_file.txt", ios::out);
-    
+    User user;
     string data[6];
     data[0] = user.first_name;
     data[1] = user.last_name;
@@ -84,7 +85,7 @@ bool Database_User::readUser(User user, string search_id)
     }
 
         cout << "user not found" << endl;
-    
+
     return false;
 }
 
@@ -168,6 +169,34 @@ string Database_User::returnStatus(string id){
     if(id == data[6]){
         return data[5];
     }
+
     afile.close();
 }
+
+string Database_User::returnName(string id){
+
+    afile.open("Database files/databaseUser.txt");
+    User user;
+    string data[8];
+    data[0] = user.first_name;
+    data[1] = user.last_name;
+    data[2] = user.level;
+    data[3] = user.sex;
+    data[4] = user.department;
+    data[5] = user.status;
+    data[6] = user.index_number;
+    data[7] = user.pin;
+
+    for(int i = 0; i < 8; i++){
+        afile >> data[i];
+    }
+
+    if(id == data[6]){
+        return data[1] + " " + data[0];
+    }
+
+    afile.close();
+}
+
+
 #endif //DATABASE_USER_H

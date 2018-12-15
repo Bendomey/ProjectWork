@@ -32,10 +32,9 @@ using namespace auth;
 void start_application();
 void checkInt(int);
 void login_screen();
-void start_screen();
-void start_screen_for_admin();
-void start_screen_for_staff();
-void start_screen_for_student();
+void start_screen_for_admin(string);
+void start_screen_for_staff(string);
+void start_screen_for_student(string);
 
 // ************FUNCTIONS FOR THE APPLICATION*************************
 
@@ -53,7 +52,7 @@ void start_application()
     switch(choice)
     {
         case 1: 
-            // login_screen();
+            login_screen();
             break;
         case 2:
             cout << "Have a nice day :)\n";
@@ -87,18 +86,21 @@ void login_screen()
     cin >> user.pin;
     cout << endl; 
     Auth login;
+    string status;
     if(login.signIn(user.index_number,user.pin))
     {
-        if(db.returnStatus(user.index_number) == "1"){
+        status = db.returnStatus(user.index_number);
+        if(status == "1"){
             // return screen for admin
-            start_screen_for_admin();
+            start_screen_for_admin(user.index_number);
         }else 
-        if(db.returnStatus(user.index_number) == "2"){
+        if(status == "2"){
             // return screen for staff
-            start_screen_for_staff();
+            start_screen_for_staff(user.index_number);
         }else 
-        if(db.returnStatus(user.index_number) == "3"){
+        if(status == "3"){
             // return screen for student
+            start_screen_for_student(user.index_number);
         }
     }else{
         cout << "Invalid details!!\n";
@@ -106,22 +108,28 @@ void login_screen()
 
 }
 
-void start_screen_for_admin()
+void start_screen_for_admin(string indexNumber)
 {
-    User user;
-    cout << "Welcome " << user.last_name << " " << user.last_name;
+    Database_User db; 
+    cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM\n";
+    cout << "Welcome " << db.returnName(indexNumber) << endl;
 }
 
-void start_screen_for_staff()
+void start_screen_for_staff(string indexNumber)
 {
-    User user;
-    cout << "Welcome " << user.last_name << " " << user.last_name;
+    Database_User db;
+    cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM\n";
+    cout << "\t\t\t\t\tWelcome " << db.returnName(indexNumber) << endl;
+
 }
 
-void start_screen_for_student()
+void start_screen_for_student(string indexNumber)
 {
-    User user;
-    cout << "Welcome " << user.last_name << " " << user.last_name;
+    Database_User db;
+    cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM\n";
+    cout << "Welcome " << db.returnName(indexNumber) << endl;
+
+    // cout << "Welcome " << user.last_name << " " << user.last_name;
 }
 
 #endif //INCLUDES_H
