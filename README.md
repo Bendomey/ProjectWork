@@ -14,6 +14,9 @@ project work
 
 
 3) Student
- - edit details except pin and index number
+ - edit details except pin,index Number,level,department
  - Add/Remove courses
  - status of 3
+
+
+ tommorrow working on 
