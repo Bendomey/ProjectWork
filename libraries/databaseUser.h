@@ -28,6 +28,11 @@ class Database_User
     bool compareUser(string,string);
     string returnStatus(string);
     string returnName(string);
+    string returnFirstName(string);
+    string returnLastName(string);
+    string returnLevel(string);
+    string returnSex(string);
+    string returnDepartment(string);
 };
 
 
@@ -91,19 +96,21 @@ bool Database_User::readUser(string search_id)
 
 bool Database_User::udpdateUser(User user,string user_id)
 {
-    afile.open("Database files/databaseUser.txt", ios::app);
+    afile.open("Database files/databaseUser.txt", ios::out);
 
-    string data[6];
+    string data[8];
     data[0] = user.first_name;
     data[1] = user.last_name;
     data[2] = user.sex;
     data[3] = user.index_number;
     data[4] = user.department;
     data[5] = user.level;
+    data[6] = user.index_number;
+    data[7] = user.pin;
 
     if (user_id == user.index_number) {
         cout << "User found\n";
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 8; i++)
         {
             afile << data[i] << "    ";
         }
@@ -193,6 +200,131 @@ string Database_User::returnName(string id){
 
     if(id == data[6]){
         return data[1] + " " + data[0];
+    }
+
+    afile.close();
+}
+
+string Database_User::returnFirstName(string id){
+
+    afile.open("Database files/databaseUser.txt");
+    User user;
+    string data[8];
+    data[0] = user.first_name;
+    data[1] = user.last_name;
+    data[2] = user.level;
+    data[3] = user.sex;
+    data[4] = user.department;
+    data[5] = user.status;
+    data[6] = user.index_number;
+    data[7] = user.pin;
+
+    for(int i = 0; i < 8; i++){
+        afile >> data[i];
+    }
+
+    if(id == data[6]){
+        return data[0];
+    }
+
+    afile.close();
+}
+
+string Database_User::returnLastName(string id){
+
+    afile.open("Database files/databaseUser.txt");
+    User user;
+    string data[8];
+    data[0] = user.first_name;
+    data[1] = user.last_name;
+    data[2] = user.level;
+    data[3] = user.sex;
+    data[4] = user.department;
+    data[5] = user.status;
+    data[6] = user.index_number;
+    data[7] = user.pin;
+
+    for(int i = 0; i < 8; i++){
+        afile >> data[i];
+    }
+
+    if(id == data[6]){
+        return data[1];
+    }
+
+    afile.close();
+}
+
+string Database_User::returnLevel(string id){
+
+    afile.open("Database files/databaseUser.txt");
+    User user;
+    string data[8];
+    data[0] = user.first_name;
+    data[1] = user.last_name;
+    data[2] = user.level;
+    data[3] = user.sex;
+    data[4] = user.department;
+    data[5] = user.status;
+    data[6] = user.index_number;
+    data[7] = user.pin;
+
+    for(int i = 0; i < 8; i++){
+        afile >> data[i];
+    }
+
+    if(id == data[6]){
+        return data[2];
+    }
+
+    afile.close();
+}
+
+string Database_User::returnSex(string id){
+
+    afile.open("Database files/databaseUser.txt");
+    User user;
+    string data[8];
+    data[0] = user.first_name;
+    data[1] = user.last_name;
+    data[2] = user.level;
+    data[3] = user.sex;
+    data[4] = user.department;
+    data[5] = user.status;
+    data[6] = user.index_number;
+    data[7] = user.pin;
+
+    for(int i = 0; i < 8; i++){
+        afile >> data[i];
+    }
+
+    if(id == data[6]){
+        return data[3];
+    }
+
+    afile.close();
+}
+
+string Database_User::returnDepartment(string id){
+
+    afile.open("Database files/databaseUser.txt");
+    User user;
+    string data[8];
+    data[0] = user.first_name;
+    data[1] = user.last_name;
+    data[2] = user.level;
+    data[3] = user.sex;
+    data[4] = user.department;
+    data[5] = user.status;
+    data[6] = user.index_number;
+    data[7] = user.pin;
+
+    for(int i = 0; i < 8; i++){
+        afile >> data[i];
+    }
+
+    if(id == data[6]){
+        return data[4];
     }
 
     afile.close();

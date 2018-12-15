@@ -10,7 +10,6 @@ project work
 2) Staff 
  - Add/Edit/Remove courses
  - Add Courses Scores
- - Assign Student to course
  - status of 2
 
 

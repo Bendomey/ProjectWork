@@ -17,6 +17,8 @@ main(int argc, char const *argv[])
 {
     start_application();
     
-
+Database_User db;
+// cout << db.returnFirstName("112233");
+// db.returnDepartment("112233");
     return 0;
 }
