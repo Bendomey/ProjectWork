@@ -119,7 +119,7 @@ void start_screen_for_staff(string indexNumber)
 {
     Database_User db;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM\n";
-    cout << "\t\t\t\t\tWelcome " << db.returnName(indexNumber) << endl;
+    cout << "\t\t\t\t\t\t\t\tWelcome " << db.returnName(indexNumber) << endl;
 
 }
 
@@ -129,7 +129,6 @@ void start_screen_for_student(string indexNumber)
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM\n";
     cout << "Welcome " << db.returnName(indexNumber) << endl;
 
-    // cout << "Welcome " << user.last_name << " " << user.last_name;
 }
 
 #endif //INCLUDES_H

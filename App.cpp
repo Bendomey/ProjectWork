@@ -8,6 +8,7 @@
 
 /**
  * this file is the frontend of the application
+ * It contains the start application which contains all the functions from the include function
  */
 
 #include "libraries/includes.h"
@@ -16,8 +17,6 @@ main(int argc, char const *argv[])
 {
     start_application();
     
-    // login_screen();   
-    // cout << db.returnStatus("112233");
 
     return 0;
 }
