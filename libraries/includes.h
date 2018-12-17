@@ -461,7 +461,10 @@ void start_screen_for_student(string indexNumber,string pin)
 void view_student_courses(string indexNumber,string pin)
 {
     Database_course course;
-    course.view_courses(indexNumber);
+    if(!course.view_courses(indexNumber)){
+        // cout << "No Courses registered for\n";
+    }
+
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
@@ -485,11 +488,11 @@ void edit_student_details(string indexNumber,string pin)
     cin >> student.last_name;
     cout << "Sex: ";
     cin >> student.sex;
-    // student.level = db.returnLevel(indexNumber);
-    // student.department = db.returnDepartment(indexNumber);
-    // student.status = db.returnStatus(indexNumber);
-    // student.index_number = indexNumber;
-    // student.pin = pin;
+    student.level = db.returnLevel(indexNumber);
+    student.department = db.returnDepartment(indexNumber);
+    student.status = db.returnStatus(indexNumber);
+    student.index_number = indexNumber;
+    student.pin = pin;
     // updating
     db.udpdateUser(student);
     int choice;

@@ -24,3 +24,4 @@ things have prob with
  - with the admin add and remove and edit feature
  - if courses are not in the list then they cant register
  - generate ids and pins for new student and staff
+

@@ -146,7 +146,7 @@ void Database_User::deleteUser(string search_id)
 bool Database_User::compareUser(string id, string pin)
 {
     string user_collect;
-    afile.open("Database files/databaseuser.txt");
+    afile.open("Database files/databaseUser.txt");
     while(afile.eof())
     {
         getline(afile,user_collect);
@@ -157,26 +157,18 @@ bool Database_User::compareUser(string id, string pin)
         }
     }
     afile.close();
-    // return false;
 }
 
 string Database_User::returnStatus(string id){
-    User user;
     string user_collect;
-    afile.open("Database files/databaseuser.txt");
+    afile.open("Database files/databaseUser.txt");
     while(!afile.eof())
     {
         getline(afile,user_collect);
         splitString(arr,user_collect);
         if(arr[6] == id){
-            user.first_name = arr[0];
-            user.last_name = arr[1];
-            user.level = arr[2];
-            user.sex = arr[3];
-            user.department = arr[4];
-            user.status = arr[5];
-            user.index_number = arr[5];
-            user.pin = arr[6];
+            user_collect = arr[5];
+            return user_collect;
             break;   
         }
     }
@@ -188,24 +180,17 @@ string Database_User::returnStatus(string id){
 
 string Database_User::returnName(string id){
 
+    string user_collect;
     afile.open("Database files/databaseUser.txt");
-    User user;
-    string data[8];
-    data[0] = user.first_name;
-    data[1] = user.last_name;
-    data[2] = user.level;
-    data[3] = user.sex;
-    data[4] = user.department;
-    data[5] = user.status;
-    data[6] = user.index_number;
-    data[7] = user.pin;
-
-    for(int i = 0; i < 8; i++){
-        afile >> data[i];
-    }
-
-    if(id == data[6]){
-        return data[1] + " " + data[0];
+    while(!afile.eof())
+    {
+        getline(afile,user_collect);
+        splitString(arr,user_collect);
+        if(arr[6] == id){
+            user_collect = arr[1] + " " + arr[0];
+            return user_collect;
+            break;   
+        }
     }
 
     afile.close();
@@ -214,24 +199,17 @@ string Database_User::returnName(string id){
 
 string Database_User::returnFirstName(string id){
 
+   string user_collect;
     afile.open("Database files/databaseUser.txt");
-    User user;
-    string data[8];
-    data[0] = user.first_name;
-    data[1] = user.last_name;
-    data[2] = user.level;
-    data[3] = user.sex;
-    data[4] = user.department;
-    data[5] = user.status;
-    data[6] = user.index_number;
-    data[7] = user.pin;
-
-    for(int i = 0; i < 8; i++){
-        afile >> data[i];
-    }
-
-    if(id == data[6]){
-        return data[0];
+    while(!afile.eof())
+    {
+        getline(afile,user_collect);
+        splitString(arr,user_collect);
+        if(arr[6] == id){
+            user_collect = arr[0];
+            return user_collect;
+            break;   
+        }
     }
 
     afile.close();
@@ -239,24 +217,17 @@ string Database_User::returnFirstName(string id){
 
 string Database_User::returnLastName(string id){
 
+    string user_collect;
     afile.open("Database files/databaseUser.txt");
-    User user;
-    string data[8];
-    data[0] = user.first_name;
-    data[1] = user.last_name;
-    data[2] = user.level;
-    data[3] = user.sex;
-    data[4] = user.department;
-    data[5] = user.status;
-    data[6] = user.index_number;
-    data[7] = user.pin;
-
-    for(int i = 0; i < 8; i++){
-        afile >> data[i];
-    }
-
-    if(id == data[6]){
-        return data[1];
+    while(!afile.eof())
+    {
+        getline(afile,user_collect);
+        splitString(arr,user_collect);
+        if(arr[6] == id){
+            user_collect = arr[1];
+            return user_collect;
+            break;   
+        }
     }
 
     afile.close();
@@ -264,24 +235,17 @@ string Database_User::returnLastName(string id){
 
 string Database_User::returnLevel(string id){
 
+   string user_collect;
     afile.open("Database files/databaseUser.txt");
-    User user;
-    string data[8];
-    data[0] = user.first_name;
-    data[1] = user.last_name;
-    data[2] = user.level;
-    data[3] = user.sex;
-    data[4] = user.department;
-    data[5] = user.status;
-    data[6] = user.index_number;
-    data[7] = user.pin;
-
-    for(int i = 0; i < 8; i++){
-        afile >> data[i];
-    }
-
-    if(id == data[6]){
-        return data[2];
+    while(!afile.eof())
+    {
+        getline(afile,user_collect);
+        splitString(arr,user_collect);
+        if(arr[6] == id){
+            user_collect = arr[2];
+            return user_collect;
+            break;   
+        }
     }
 
     afile.close();
@@ -289,24 +253,17 @@ string Database_User::returnLevel(string id){
 
 string Database_User::returnSex(string id){
 
+   string user_collect;
     afile.open("Database files/databaseUser.txt");
-    User user;
-    string data[8];
-    data[0] = user.first_name;
-    data[1] = user.last_name;
-    data[2] = user.level;
-    data[3] = user.sex;
-    data[4] = user.department;
-    data[5] = user.status;
-    data[6] = user.index_number;
-    data[7] = user.pin;
-
-    for(int i = 0; i < 8; i++){
-        afile >> data[i];
-    }
-
-    if(id == data[6]){
-        return data[3];
+    while(!afile.eof())
+    {
+        getline(afile,user_collect);
+        splitString(arr,user_collect);
+        if(arr[6] == id){
+            user_collect = arr[3] ;
+            return user_collect;
+            break;   
+        }
     }
 
     afile.close();
@@ -314,24 +271,17 @@ string Database_User::returnSex(string id){
 
 string Database_User::returnDepartment(string id){
 
+    string user_collect;
     afile.open("Database files/databaseUser.txt");
-    User user;
-    string data[8];
-    data[0] = user.first_name;
-    data[1] = user.last_name;
-    data[2] = user.level;
-    data[3] = user.sex;
-    data[4] = user.department;
-    data[5] = user.status;
-    data[6] = user.index_number;
-    data[7] = user.pin;
-
-    for(int i = 0; i < 8; i++){
-        afile >> data[i];
-    }
-
-    if(id == data[6]){
-        return data[4];
+    while(!afile.eof())
+    {
+        getline(afile,user_collect);
+        splitString(arr,user_collect);
+        if(arr[6] == id){
+            user_collect = arr[4];
+            return user_collect;
+            break;   
+        }
     }
 
     afile.close();

@@ -197,18 +197,21 @@ class Database_course
     }
 
     // view courses of a student
-    void view_courses(string user_id)
+    bool view_courses(string user_id)
     {
         string course_collected;
         afile.open("Database files/databaseCourseForStudent.txt");
         cout << "Courses offered by " << user_id << endl;
         while(!afile.eof()){
-        getline(afile,course_collected);
-        splitString(arr,course_collected);
-        if(arr[0] == user_id){
-            course_collected = arr[1] + " " + arr[2];
-            cout << course_collected << endl;
-        }
+            getline(afile,course_collected);
+            splitString(arr,course_collected);
+            if(arr[0] == user_id){
+                course_collected = arr[1] + " " + arr[2] + " " + arr[3] + " " + arr[4] + " " + arr[5];
+                cout << course_collected << endl;
+                return true;
+                break;
+            }
+
         }
         afile.close();
     }

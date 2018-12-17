@@ -23,12 +23,12 @@ using namespace std;
 struct User{
     string first_name;
     string last_name;
+    string level;
     string sex;
+    string department;
+    string status;
     string index_number;
     string pin;
-    string status;
-    string level;
-    string department;
 
 };
 
