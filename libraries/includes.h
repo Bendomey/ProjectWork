@@ -16,7 +16,7 @@
 #include <string>
 #include "datatypes.h"
 #include "databaseUser.h"
-#include "../source_files/courses.cpp"
+// #include "../source_files/studentCourse.cpp"
 #include "../source_files/User.cpp"
 #include "../source_files/students.cpp"
 #include "../source_files/staffs.cpp"
@@ -25,7 +25,6 @@
 
 // namespaces
 using namespace std;
-using namespace course;
 using namespace auth;
 
 // Function prototypes
@@ -176,7 +175,8 @@ void edit_student_details(string indexNumber,string pin)
     student.status = db.returnStatus(indexNumber);
     student.index_number = indexNumber;
     student.pin = pin;
-    // update function should be here
+    // updating
+    db.udpdateUser(student);
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;

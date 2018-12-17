@@ -18,9 +18,5 @@ project work
  - Add/Remove courses
  - status of 3
 
-
- tommorrow working on courses database
- one file  for containing all courses name added by the staff
- files containing each file and its marks or something
-
- how to search for a  user in a file
+things have prob with
+ - extracting one value from the user and course class 

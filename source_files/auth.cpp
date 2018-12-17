@@ -11,7 +11,7 @@ namespace auth{
     bool Auth::signIn(string id, string pin)
     {
         Database_User db;
-        if(db.compareUser(id,pin))
+        if(db.compareUser(id,pin) == true)
         {
             return true;
         }else

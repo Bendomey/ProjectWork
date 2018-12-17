@@ -1,1 +1,3 @@
-Kwame  Dome  200  Male  computerScience  3  112233  1234
+Esther  Domey  200  Female  IT  1  112233  1234  
+Benjamin  Domey  200  m  Computer 3  10670196  59779 
+Ebenezer Domey 100 m engineering 2 1234567 4321
