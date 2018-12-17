@@ -21,3 +21,4 @@ project work
 things have prob with
  - extracting one value from the user and course class 
  - use the ids extracted from the student courses database to match the users in the users database
+ - add the admin add and remove and edit feature

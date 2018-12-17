@@ -139,7 +139,7 @@ void Database_User::deleteUser(string search_id)
     afile.close();
     remove("Database files/databaseUser.txt");
     rename("Database files/tmp_file.txt", "Database files/databaseUser.txt");
-    // cout << "user updated successfully";
+    cout << "user deleted successfully\n";
 }
 
 // for the authentication class
