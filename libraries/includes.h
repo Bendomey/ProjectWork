@@ -16,6 +16,7 @@
 #include <string>
 #include "datatypes.h"
 #include "databaseUser.h"
+#include "databaseCourse.h"
 // #include "../source_files/studentCourse.cpp"
 #include "../source_files/User.cpp"
 #include "../source_files/students.cpp"
@@ -38,7 +39,13 @@ void edit_student_details(string,string);
 void add_courses_student(string,string);
 void remove_course_student(string,string);
 void checkForStudent(int);
+void checkForStaff(int);
 void validateToContinue(int);
+void add_course(string);
+void edit_course(string);
+void remove_course(string);
+void add_course_grades(string);
+void add_IA(string);
 
 // ************FUNCTIONS FOR THE APPLICATION*************************
 
@@ -121,11 +128,128 @@ void start_screen_for_admin(string indexNumber)
 
 void start_screen_for_staff(string indexNumber)
 {
-    Database_User db;
+    Database_User db_user;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM STAFF PORTAL\n";
-    cout << "\tWelcome " << db.returnName(indexNumber) << endl;
+    cout << "\tWelcome " << db_user.returnName(indexNumber) << endl;
+    cout << "1. Add Course\n2. Edit Course\n3. Remove Course\n4. Add Course Grades And Marks\n5. Logout\n";
+    int choice;
+    cout << "Please select: ";
+    cin >> choice;
+    checkForStaff(choice);
 
+    if(choice == 1) {
+        // add new course
+        add_course(indexNumber);
+    }else
+    if(choice == 2){
+        // edit course
+        edit_course(indexNumber);
+    }else
+    if(choice == 3) {
+        // remove course
+        remove_course(indexNumber);
+    }else 
+    if(choice == 4){
+        // add course grades and marks
+        cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM STAFF PORTAL\n";
+        cout << "\tWelcome " << db_user.returnName(indexNumber) << endl;
+        cout << "1. Add IA marks\n2. Add Exam Score and Grade\n3. Go back\n";
+        int choice;
+        cout << "Please select: ";
+        cin >> choice;
+        checkForScores(choice);
+        
+        if(choice == 1){
+            // Add IA marks
+            add_IA(indexNumber);
+        }else 
+        if(choice == 2) {
+            // add exams and grade
+            add_course_grades(indexNumber);
+        }else
+        if(choice == 3){
+            // go back
+            start_screen_for_staff(indexNumber);
+        }
+    }else
+    if(choice == 5){
+        // logout
+        start_application();
+    }
 }
+
+void add_course(string indexNumber)
+{
+    Database_course db_course;
+    staff_course course;
+    cout << "Please enter course code: ";
+    cin >> course.course_code;
+    cout  << "Please enter course title: ";
+    cin >> course.course_title;
+    cout << "Please enter course lecturer: ";
+    cin >> course.course_lecturer;
+    // calling the create method
+    db_course.create(course);
+
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        start_screen_for_staff(indexNumber);
+    }
+}
+
+void edit_course(string indexNumber)
+{
+    Database_course db_course;
+    staff_course course;
+    cout << "Please enter course code: ";
+    cin >> course.course_code;
+    cout  << "Please enter course title: ";
+    cin >> course.course_title;
+    cout << "Please enter course lecturer: ";
+    cin >> course.course_lecturer;
+    // calling the update method
+    db_course.updateCourse(course);
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        start_screen_for_staff(indexNumber);
+    }
+}
+
+void remove_course(string indexNumber)
+{
+    Database_course db_course;
+    string course_code;
+    cout << "Please type in the corresponding course code you want to delete: ";
+    cin >> course_code;
+    // calling the delete method
+    db_course.deleteCourse(course_code);
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        start_screen_for_staff(indexNumber);
+    }
+}
+
+void add_course_grades(string indexNumber)
+{
+
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        start_screen_for_staff(indexNumber);
+    }
+}
+
 
 void start_screen_for_student(string indexNumber,string pin)
 {
@@ -217,6 +341,25 @@ void remove_course_student(string id, string pin)
 
 void checkForStudent(int a){
     while(cin.fail() || a > 4 || a < 1){
+        cin.clear();
+        cin.ignore(200,'\n');
+        cout << "Please enter a valid number: ";
+        cin >> a;
+    }
+}
+
+void checkForStaff(int a){
+    while(cin.fail() || a > 5 || a < 1){
+        cin.clear();
+        cin.ignore(200,'\n');
+        cout << "Please enter a valid number: ";
+        cin >> a;
+    }
+}
+
+
+void checkForScores(int a){
+    while(cin.fail() || a > 3 || a < 1){
         cin.clear();
         cin.ignore(200,'\n');
         cout << "Please enter a valid number: ";

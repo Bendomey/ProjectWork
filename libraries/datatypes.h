@@ -32,15 +32,19 @@ struct User{
 
 };
 
-struct Course{
-    string CourseCode;
-	string CourseTitle;
-	string CourseLecturer;
-	string Level;
-	int CourseScore;
-	string CourseGrade;
-	int Semester;
+struct student_course{
+    std::string student_index;
+	std::string course_code;
+    std::string course_title;
+    std::string student_mark_IA = "NA";
+    std::string student_mark_EXAM = "NA";
+    std::string student_grade = "NA";
 };
 
+struct staff_course{
+    std::string course_code;
+	std::string course_title;
+    std::string course_lecturer;
+};
 
 #endif //DATATYPES_H

@@ -16,24 +16,6 @@
 main(int argc, char const *argv[])
 {
     // start_application();
-    User user;
-    // user.first_name = "Ben";
-    // user.last_name = "Dome";
-    // user.level = "200";
-    // user.sex = "m";
-    // user.status = "3";
-    // user.department = "Computer Science";
-    // user.index_number = "10670196";
-    // user.pin = "59779";
-    Database_User db;
-    // db.createUser(user);
-    // db.udpdateUser(user);
-    // cout << db.readUser("10670196") << endl;
-    // db.returnStatus("10670196",user);
-    // User user;
-    // cout << user.status;
-    // db.deleteUser("112233");
-// cout << db.returnFirstName("112233");
-// db.returnDepartment("112233");
+    start_screen_for_staff("112233");
     return 0;
 }

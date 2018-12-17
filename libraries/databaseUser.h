@@ -178,11 +178,9 @@ string Database_User::returnStatus(string id){
             user.index_number = arr[5];
             user.pin = arr[6];
             break;   
-        }else{
-            return "User not found\n";
         }
     }
-    return user.status;
+
     afile.close();
 
 }
