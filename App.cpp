@@ -16,6 +16,6 @@
 main(int argc, char const *argv[])
 {
     // start_application();
-    start_screen_for_admin("112233");
+    start_screen_for_student("112233","1234");
     return 0;
 }

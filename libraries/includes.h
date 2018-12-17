@@ -37,6 +37,7 @@ void add_student(string);
 void remove_student(string);
 void start_screen_for_staff(string);
 void start_screen_for_student(string,string);
+void view_student_courses(string,string);
 void edit_student_details(string,string);
 void add_courses_student(string,string);
 void remove_course_student(string,string);
@@ -427,7 +428,7 @@ void start_screen_for_student(string indexNumber,string pin)
     Database_User db;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM STUDENT PORTAL\n";
     cout << "\tWelcome " << db.returnName(indexNumber) << endl;
-    cout << "1. Edit Student Profile\n2. Add courses\n3. Remove Course\n4. Logout\n";
+    cout << "1. Edit Student Profile\n2. View Courses\n3. Add courses\n4. Remove Course\n5. Logout\n";
     int choice;
     cout << "Please select: ";
     cin >> choice;
@@ -438,17 +439,36 @@ void start_screen_for_student(string indexNumber,string pin)
         edit_student_details(indexNumber,pin);
 
     }else
-    if(choice == 2) {
+    if(choice == 2){
+        // view courses
+        view_student_courses(indexNumber,pin);
+    }else
+    if(choice == 3) {
         // add course
         add_courses_student(indexNumber,pin);
     }else 
-    if(choice == 3) {
+    if(choice == 4) {
         // remove course
         remove_course_student(indexNumber,pin);
     }else
-    if(choice == 4) {
+    if(choice == 5) {
         // logout redirect back to start_screen
         start_application();
+    }
+
+}
+
+void view_student_courses(string indexNumber,string pin)
+{
+    Database_course course;
+    course.view_courses(indexNumber);
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+
+    if(choice == 1){
+        start_screen_for_student(indexNumber,pin);
     }
 
 }
@@ -465,11 +485,11 @@ void edit_student_details(string indexNumber,string pin)
     cin >> student.last_name;
     cout << "Sex: ";
     cin >> student.sex;
-    student.level = db.returnLevel(indexNumber);
-    student.department = db.returnDepartment(indexNumber);
-    student.status = db.returnStatus(indexNumber);
-    student.index_number = indexNumber;
-    student.pin = pin;
+    // student.level = db.returnLevel(indexNumber);
+    // student.department = db.returnDepartment(indexNumber);
+    // student.status = db.returnStatus(indexNumber);
+    // student.index_number = indexNumber;
+    // student.pin = pin;
     // updating
     db.udpdateUser(student);
     int choice;
@@ -484,7 +504,18 @@ void edit_student_details(string indexNumber,string pin)
 
 void add_courses_student(string indexNumber,string pin)
 {
-    //course function should be here to show all courses added by the staff 
+    //course function should be here to show all courses added by the staff
+    Database_course course;
+    course.coursesAvailable();
+    student_course std_course;
+    std_course.student_index = indexNumber;
+    cout << "Please enter the course code: ";
+    cin >> std_course.course_code;
+    cout  << "Please enter the course title: ";
+    cin >> std_course.course_title;
+    // calling the create function
+    course.create(std_course);
+
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
@@ -499,6 +530,13 @@ void add_courses_student(string indexNumber,string pin)
 void remove_course_student(string id, string pin)
 {
     // course function be here to delete a course
+    Database_course course;
+    string course_code;
+    cout << "Please enter your the corressponding course code of the course you want to remove: ";
+    cin >> course_code;
+    // calling remove method
+    course.deleteCourse(course_code,id);
+
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
@@ -520,7 +558,7 @@ void checkForAdmin(int a){
 }
 
 void checkForStudent(int a){
-    while(cin.fail() || a > 4 || a < 1){
+    while(cin.fail() || a > 5 || a < 1){
         cin.clear();
         cin.ignore(200,'\n');
         cout << "Please enter a valid number: ";

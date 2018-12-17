@@ -74,6 +74,17 @@ class Database_course
 	return course_collected;
     }
 
+    void coursesAvailable()
+    {
+        string course_collected;
+        afile.open("Database files/databaseCourses.txt");
+        while(!afile.eof()){
+            getline(afile,course_collected);
+            cout << course_collected << endl;
+        }
+        afile.close();
+    }
+
     string readStaffCourse(string course_code,string student_index)
     {
 		string course_collected;

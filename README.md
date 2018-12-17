@@ -21,4 +21,6 @@ project work
 things have prob with
  - extracting one value from the user and course class 
  - use the ids extracted from the student courses database to match the users in the users database
- - add the admin add and remove and edit feature
+ - with the admin add and remove and edit feature
+ - if courses are not in the list then they cant register
+ - generate ids and pins for new student and staff
