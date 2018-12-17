@@ -21,4 +21,5 @@ project work
 things have prob with 
  - use the ids extracted from the student courses database to match the users in the users database
  - generate ids and pins for new student and staff
+ - get a text file to print details and courses of user
 

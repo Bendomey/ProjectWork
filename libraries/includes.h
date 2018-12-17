@@ -67,7 +67,6 @@ void start_application()
     int choice;
     cin >> choice;
     checkInt(choice);
-    cout << endl;
     switch(choice)
     {
         case 1: 
@@ -75,7 +74,7 @@ void start_application()
             break;
         case 2:
             cout << "Have a nice day :)\n";
-            // exit(1);
+            exit(1);
             break;
 
     }
@@ -94,7 +93,7 @@ void checkInt(int a)
 
 void login_screen()
 {
-    // system("cls");
+    system("clear");
     User user;
     Database_User db;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM\n";
@@ -129,6 +128,7 @@ void login_screen()
 
 void start_screen_for_admin(string indexNumber)
 {
+    system("clear");
     Database_User db; 
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM ADMIN PORTAL\n";
     cout << "\tWelcome " << db.returnName(indexNumber) << endl;
@@ -216,6 +216,7 @@ void edit_account(string indexNumber)
 
 void add_or_remove_staff(string indexNumber)
 {
+    system("clear");
     Database_User db_user;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM ADMIN PORTAL\n";
     cout << "\tWelcome " << db_user.returnName(indexNumber) << endl;
@@ -283,6 +284,7 @@ void remove_staff(string indexNumber)
 }
 void add_or_remove_student(string indexNumber)
 {
+    system("clear");
     Database_User db_user;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM ADMIN PORTAL\n";
     cout << "\tWelcome " << db_user.returnName(indexNumber) << endl;
@@ -351,6 +353,7 @@ void remove_student(string indexNumber)
 
 void start_screen_for_staff(string indexNumber)
 {
+    system("clear");
     Database_User db_user;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM STAFF PORTAL\n";
     cout << "\tWelcome " << db_user.returnName(indexNumber) << endl;
@@ -386,6 +389,7 @@ void start_screen_for_staff(string indexNumber)
 
 void add_scores_and_grades(string indexNumber)
 {
+    system("clear");
     Database_User db_user;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM STAFF PORTAL\n";
         cout << "\tWelcome " << db_user.returnName(indexNumber) << endl;
@@ -519,6 +523,7 @@ void remove_course(string indexNumber)
 
 void start_screen_for_student(string indexNumber,string pin)
 {
+    system("clear");
     Database_User db;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM STUDENT PORTAL\n";
     cout << "\tWelcome " << db.returnName(indexNumber) << endl;

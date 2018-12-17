@@ -16,21 +16,15 @@
 
 main(int argc, char const *argv[])
 {
+
+    /**
+     * Application starts here
+     */
+
     start_application();
-    // start_screen_for_student("10670196","59779");
-    Database_User user;
-    // if(user.compareUser("11233","1234")){
-    //     cout << "found";
-    // }
-    // cout << user.returnStatus("112233");
-    // student_course stu_course;
-    // stu_course.course_code = "MAth121";
-    // stu_course.course_title = "Calculus";
-    // stu_course.student_index = "112233";
-    // // course.create(stu_course);
-    // if(!course.view_courses("112233"))
-    // {
-    //     cout << "No courses registered for\n";
-    // }
+    
+    /**
+     * Application ends here
+     */
     return 0;
 }
