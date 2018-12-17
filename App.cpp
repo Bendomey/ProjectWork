@@ -9,6 +9,7 @@
 /**
  * this file is the frontend of the application
  * It contains the start application which contains all the functions from the include function
+ *  Whenever you are given a prompt please put the words together
  */
 
 #include "libraries/includes.h"

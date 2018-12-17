@@ -15,7 +15,7 @@ project work
 
 3) Student
  - edit details except pin,index Number,level,department
- - Add/Remove courses
+ - Add/Remove/View courses
  - status of 3
 
 things have prob with
