@@ -93,12 +93,12 @@ class Database_course
             getline(afile,course_collected);
             splitString(arr,course_collected);
 			if(arr[0] == student_index && arr[1] == course_code){
-				return course_collected;
+				
                 break;
 			}
     }
     afile.close();
-	
+	return course_collected;
     }
 
 
@@ -236,7 +236,7 @@ class Database_course
     }
 
     bool assign_EXAM_marks(string user_id,string course_code,string EXAM_mark){
-    int sum,ia,exam;
+    int sum = 0,ia = 0,exam = 0;
     string course = readStaffCourse(course_code,user_id);
     if(course.size() > 0){
       splitString(arr,course);
@@ -246,9 +246,11 @@ class Database_course
       course.course_code = arr[1];
       course.course_title = arr[2];
       course.student_mark_IA = arr[3];
-      ia = std::stoi(arr[3],&sz);
+      stringstream change(arr[3]);
+        change >> ia;
       course.student_mark_EXAM = arr[4];
-      exam = std::stoi(arr[4],&sz);
+      stringstream change2(arr[4]);
+        change2 >> exam;
       sum = ia + exam;
       course.student_grade = this->grading(sum);
       this->updateCourse(course);

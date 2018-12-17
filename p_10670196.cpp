@@ -21,10 +21,8 @@ main(int argc, char const *argv[])
      * Application starts here
      */
 
-    // start_application();
-    Database_course course;
-    string hmm = course.readStaffCourse("En101","112233");
-    cout << hmm.size();
+    start_application();
+    
 
     /**
      * Application ends here

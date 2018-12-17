@@ -434,7 +434,7 @@ void add_IA(string indexNumber)
     cout << "Please enter the mark of the student: ";
     cin >> course.student_mark_IA;
     // calling the assign ia mark method
-    db_course.assign_IA_marks(course.student_index,course.course_code,course.student_mark_IA);
+    // db_course.assign_IA_marks(course.student_index,course.course_code,course.student_mark_IA);
     if(db_course.assign_IA_marks(course.student_index,course.course_code,course.student_mark_IA)){
         cout << "Successfully updated the record of " << course.student_index << endl;
     }

@@ -19,7 +19,6 @@ project work
  - status of 3
 
 things have prob with 
- - use the ids extracted from the student courses database to match the users in the users database
- - generate ids and pins for new student and staff
- - get a text file to print details and courses of user
+ - work on the editing the the ia and exams mark
+ - work on the chamging from string to integer
 
