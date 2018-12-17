@@ -35,6 +35,8 @@ void remove_staff(string);
 void add_or_remove_student(string);
 void add_student(string);
 void remove_student(string);
+void add_admin(string);
+void edit_account(string);
 void start_screen_for_staff(string);
 void start_screen_for_student(string,string);
 void view_student_courses(string,string);
@@ -130,11 +132,11 @@ void start_screen_for_admin(string indexNumber)
     Database_User db; 
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM ADMIN PORTAL\n";
     cout << "\tWelcome " << db.returnName(indexNumber) << endl;
-    cout << "1. Add or Remove Staff\n2. Add or Remove Student\n3. Logout\n";
+    cout << "1. Add or Remove Staff\n2. Add or Remove Student\n3. Add Admin\n4. Edit Account\n5. Logout\n";
     int choice;
     cout << "Please select: ";
     cin >> choice;
-    checkForScores(choice);
+    checkForStudent(choice);
 
     if(choice == 1){
         // add or remove staff
@@ -145,8 +147,70 @@ void start_screen_for_admin(string indexNumber)
         add_or_remove_student(indexNumber);
     }else
     if(choice == 3){
+        // add admin
+        add_admin(indexNumber);
+    }else 
+    if(choice == 4)
+    {
+        // edit account
+        edit_account(indexNumber);
+    }
+    if(choice == 5){
         // logout
         start_application();
+    }
+}
+
+void add_admin(string indexNumber)
+{
+    User user;
+    Database_User db;
+    cout << "Enter first name: ";
+    cin >> user.first_name;
+    cout << "Enter last name: ";
+    cin >> user.last_name;
+    user.level = "admin";
+    cout << "Please enter sex(m or f): ";
+    cin >> user.sex;
+    user.department = "no-department";
+    user.status = 1;
+    // generate index and pin here;
+    // calling the create user from database class
+    db.createUser(user);
+
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        start_screen_for_admin(indexNumber);
+    }
+}
+
+void edit_account(string indexNumber)
+{
+    User user;
+    Database_User db;
+    cout << "Enter first name: ";
+    cin >> user.first_name;
+    cout << "Enter last name: ";
+    cin >> user.last_name;
+    user.level = "admin";
+    cout << "Please enter sex(m or f): ";
+    cin >> user.sex;
+    user.department = "no-department";
+    user.status = 1;
+    user.index_number = indexNumber;
+    user.pin = db.returnPin(indexNumber);
+    // calling the create user from database class
+    db.udpdateUser(user);    
+
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        start_screen_for_admin(indexNumber);
     }
 }
 
@@ -183,7 +247,7 @@ void add_staff(string indexNumber)
     cin >> user.first_name;
     cout << "Please enter last name: ";
     cin >> user.last_name;
-    user.level = "admin";
+    user.level = "staff";
     cout << "Please enter sex(m or f): ";
     cin >> user.sex;
     user.department = "no-department";
@@ -191,6 +255,14 @@ void add_staff(string indexNumber)
     // generate id and pin
     // calling the create database method
     db_user.createUser(user);
+
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        add_or_remove_staff(indexNumber);
+    }
 }
 
 void remove_staff(string indexNumber)
@@ -201,13 +273,20 @@ void remove_staff(string indexNumber)
     cin >> search_id;
     // calling the deleteUser from database
     db_user.deleteUser(search_id);
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        add_or_remove_staff(indexNumber);
+    }
 }
 void add_or_remove_student(string indexNumber)
 {
     Database_User db_user;
     cout << "\t\t\t\t\t\t TEMA SECONDARY SCHOOL MANAGEMENT SYSTEM ADMIN PORTAL\n";
     cout << "\tWelcome " << db_user.returnName(indexNumber) << endl;
-    cout << "1. Add Staff\n2. Remove Staff\n3. Go back\n";
+    cout << "1. Add Student\n2. Remove Student\n3. Go back\n";
     int choice;
     cout << "Please select: ";
     cin >> choice;
@@ -243,6 +322,13 @@ void add_student(string indexNumber)
     // generate id and pin
     // calling the create database method
     db_user.createUser(user);
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        add_or_remove_student(indexNumber);
+    }
 }
 
 void remove_student(string indexNumber)
@@ -253,6 +339,14 @@ void remove_student(string indexNumber)
     cin >> search_id;
     // calling the deleteUser from database
     db_user.deleteUser(search_id);
+
+    int choice;
+    cout << "Please enter 1 to continue: " ;
+    cin >> choice;
+    validateToContinue(choice);
+    if(choice == 1){
+        add_or_remove_student(indexNumber);
+    }
 }
 
 void start_screen_for_staff(string indexNumber)

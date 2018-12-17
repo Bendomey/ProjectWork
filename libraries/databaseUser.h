@@ -38,6 +38,7 @@ class Database_User
     string returnLevel(string);
     string returnSex(string);
     string returnDepartment(string);
+    string returnPin(string);
     
     template <size_t N>
 		void splitString(string (&arr)[N], string str){
@@ -98,9 +99,7 @@ void Database_User::udpdateUser(User user)
    string new_user;
    string temp_user;
    exist_user = this->readUser(user.index_number);
-   cout << "Existing data of user: " << exist_user << endl;
     new_user = user.first_name + " " + user.last_name + " " + user.level + " " + user.sex + " " + user.department + " " + user.status + " " + user.index_number + " " + user.pin;
-    cout << "New data of user: " << endl;
     afile.open("Database files/databaseUser.txt");
     tmp_file.open("Database files/tmp_file.txt");
     while(!afile.eof())
@@ -115,7 +114,7 @@ void Database_User::udpdateUser(User user)
     afile.close();
     remove("Database files/databaseUser.txt");
     rename("Database files/tmp_file.txt", "Database files/databaseUser.txt");
-    cout << "Updated success\n";
+    cout << "Updated successfully\n";
 }
 
 // delete user
@@ -279,6 +278,23 @@ string Database_User::returnDepartment(string id){
         splitString(arr,user_collect);
         if(arr[6] == id){
             user_collect = arr[4];
+            return user_collect;
+            break;   
+        }
+    }
+
+    afile.close();
+}
+
+string Database_User::returnPin(string id){
+    string user_collect;
+    afile.open("Database files/databaseUser.txt");
+    while(!afile.eof())
+    {
+        getline(afile,user_collect);
+        splitString(arr,user_collect);
+        if(arr[6] == id){
+            user_collect = arr[7];
             return user_collect;
             break;   
         }

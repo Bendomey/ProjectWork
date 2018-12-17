@@ -18,10 +18,8 @@ project work
  - Add/Remove/View courses
  - status of 3
 
-things have prob with
- - extracting one value from the user and course class 
+things have prob with 
  - use the ids extracted from the student courses database to match the users in the users database
  - with the admin add and remove and edit feature
- - if courses are not in the list then they cant register
  - generate ids and pins for new student and staff
 
