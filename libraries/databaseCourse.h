@@ -93,11 +93,12 @@ class Database_course
             getline(afile,course_collected);
             splitString(arr,course_collected);
 			if(arr[0] == student_index && arr[1] == course_code){
-				break;
+				return course_collected;
+                break;
 			}
     }
     afile.close();
-	return course_collected;
+	
     }
 
 
@@ -220,11 +221,11 @@ class Database_course
     string course = readStaffCourse(course_code,user_id);
     if(course.size() > 0){
       splitString(arr,course);
-      arr[3] = IA_mark;
       student_course course;
       course.student_index = arr[0];
       course.course_code = arr[1];
       course.course_title = arr[2];
+      arr[3] = IA_mark;
       course.student_mark_IA = arr[3];
       course.student_mark_EXAM = arr[4];
       course.student_grade = arr[5];

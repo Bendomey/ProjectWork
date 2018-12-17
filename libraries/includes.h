@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "datatypes.h"
 #include "databaseUser.h"
 #include "databaseCourse.h"
@@ -54,6 +56,8 @@ void remove_course(string);
 void add_course_grades(string);
 void add_IA(string);
 void add_scores_and_grades(string indexNumber);
+string index_number_generator();
+string pin_generator();
 
 // ************FUNCTIONS FOR THE APPLICATION*************************
 
@@ -173,8 +177,10 @@ void add_admin(string indexNumber)
     cout << "Please enter sex(m or f): ";
     cin >> user.sex;
     user.department = "no-department";
-    user.status = 1;
+    user.status = "2";
     // generate index and pin here;
+    user.index_number = index_number_generator();
+    user.pin = pin_generator();
     // calling the create user from database class
     db.createUser(user);
 
@@ -252,8 +258,10 @@ void add_staff(string indexNumber)
     cout << "Please enter sex(m or f): ";
     cin >> user.sex;
     user.department = "no-department";
-    user.status = 2;
+    user.status = "2";
     // generate id and pin
+    user.index_number = index_number_generator();
+    user.pin = pin_generator();
     // calling the create database method
     db_user.createUser(user);
 
@@ -320,8 +328,10 @@ void add_student(string indexNumber)
     cin >> user.sex;
     cout << "Please enter deparment with all words together: ";
     cin >> user.department;
-    user.status = 3;
+    user.status = "3";
     // generate id and pin
+    user.index_number = index_number_generator();
+    user.pin = pin_generator();
     // calling the create database method
     db_user.createUser(user);
     int choice;
@@ -424,6 +434,7 @@ void add_IA(string indexNumber)
     cout << "Please enter the mark of the student: ";
     cin >> course.student_mark_IA;
     // calling the assign ia mark method
+    db_course.assign_IA_marks(course.student_index,course.course_code,course.student_mark_IA);
     if(db_course.assign_IA_marks(course.student_index,course.course_code,course.student_mark_IA)){
         cout << "Successfully updated the record of " << course.student_index << endl;
     }
@@ -608,6 +619,7 @@ void add_courses_student(string indexNumber,string pin)
 {
     //course function should be here to show all courses added by the staff
     Database_course course;
+    cout << "Courses available\n";
     course.coursesAvailable();
     student_course std_course;
     std_course.student_index = indexNumber;
@@ -685,6 +697,20 @@ void checkForScores(int a){
         cout << "Please enter a valid number: ";
         cin >> a;
     }
+}
+
+string index_number_generator()
+{
+    srand(time(0));
+    string pin = "10" + to_string(rand()%10000);
+    return pin;
+}
+
+string pin_generator()
+{
+    srand(time(0));
+    string pin = to_string(rand()%10000);
+    return pin;
 }
 
 void validateToContinue(int a)
