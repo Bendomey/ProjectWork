@@ -28,7 +28,7 @@ using namespace auth;
 
 // Function prototypes
 void start_application();
-void checkInt(int);
+int checkInt(int);
 void login_screen();
 void start_screen_for_admin(string);
 void add_or_remove_staff(string);
@@ -45,11 +45,10 @@ void view_student_courses(string,string);
 void edit_student_details(string,string);
 void add_courses_student(string,string);
 void remove_course_student(string,string);
-void checkForStudent(int);
-void checkForStaff(int);
-void checkForScores(int);
-void checkForAdmin(int);
-void validateToContinue(int);
+int checkForStudent(int);
+int checkForStaff(int);
+int checkForScores(int);
+int validateToContinue(int);
 void add_course(string);
 void edit_course(string);
 void remove_course(string);
@@ -70,8 +69,7 @@ void start_application()
     cout << "Please select: ";
     int choice;
     cin >> choice;
-    checkInt(choice);
-    switch(choice)
+    switch(checkInt(choice))
     {
         case 1: 
             login_screen();
@@ -84,7 +82,7 @@ void start_application()
     }
 }
 
-void checkInt(int a)
+int checkInt(int a)
 {
     while(cin.fail() || a > 2 || a < 1)
     {
@@ -93,6 +91,7 @@ void checkInt(int a)
         cout << "Please enter correct valid input: ";
         cin >> a;
     }
+    return a;
 }
 
 void login_screen()
@@ -140,26 +139,25 @@ void start_screen_for_admin(string indexNumber)
     int choice;
     cout << "Please select: ";
     cin >> choice;
-    checkForStudent(choice);
 
-    if(choice == 1){
+    if(checkForStudent(choice) == 1){
         // add or remove staff
         add_or_remove_staff(indexNumber);
     }else
-    if(choice == 2){
+    if(checkForStudent(choice) == 2){
         // add or remove student
         add_or_remove_student(indexNumber);
     }else
-    if(choice == 3){
+    if(checkForStudent(choice) == 3){
         // add admin
         add_admin(indexNumber);
     }else 
-    if(choice == 4)
+    if(checkForStudent(choice) == 4)
     {
         // edit account
         edit_account(indexNumber);
     }
-    if(choice == 5){
+    if(checkForStudent(choice) == 5){
         // logout
         start_application();
     }
@@ -187,8 +185,8 @@ void add_admin(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         start_screen_for_admin(indexNumber);
     }
 }
@@ -214,8 +212,8 @@ void edit_account(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         start_screen_for_admin(indexNumber);
     }
 }
@@ -230,16 +228,17 @@ void add_or_remove_staff(string indexNumber)
     int choice;
     cout << "Please select: ";
     cin >> choice;
-    checkForScores(choice);
-    if(choice == 1){
+    
+
+    if(checkForScores(choice) == 1){
         // add staff
         add_staff(indexNumber);
     }else
-    if(choice == 2){
+    if(checkForScores(choice) == 2){
         // add or remove student
         remove_staff(indexNumber);
     }else
-    if(choice == 3){
+    if(checkForScores(choice) == 3){
         // Go back
         start_screen_for_admin(indexNumber);
     }
@@ -268,8 +267,8 @@ void add_staff(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         add_or_remove_staff(indexNumber);
     }
 }
@@ -285,8 +284,8 @@ void remove_staff(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         add_or_remove_staff(indexNumber);
     }
 }
@@ -300,16 +299,16 @@ void add_or_remove_student(string indexNumber)
     int choice;
     cout << "Please select: ";
     cin >> choice;
-    checkForScores(choice);
-    if(choice == 1){
+    
+    if(checkForScores(choice) == 1){
         // add staff
         add_student(indexNumber);
     }else
-    if(choice == 2){
+    if(checkForScores(choice) == 2){
         // add or remove student
         remove_student(indexNumber);
     }else
-    if(choice == 3){
+    if(checkForScores(choice) == 3){
         // logout
         start_screen_for_admin(indexNumber);
     }
@@ -337,8 +336,8 @@ void add_student(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         add_or_remove_student(indexNumber);
     }
 }
@@ -355,8 +354,8 @@ void remove_student(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         add_or_remove_student(indexNumber);
     }
 }
@@ -371,27 +370,26 @@ void start_screen_for_staff(string indexNumber)
     int choice;
     cout << "Please select: ";
     cin >> choice;
-    checkForStaff(choice);
 
-    if(choice == 1) {
+    if(checkForStaff(choice) == 1) {
         // add new course
         add_course(indexNumber);
     }else
-    if(choice == 2){
+    if(checkForStaff(choice) == 2){
         // edit course
         edit_course(indexNumber);
     }else
-    if(choice == 3) {
+    if(checkForStaff(choice) == 3) {
         // remove course
         remove_course(indexNumber);
     }else 
-    if(choice == 4){
+    if(checkForStaff(choice) == 4){
         // add course grades and marks
 
         add_scores_and_grades(indexNumber);
         
     }else
-    if(choice == 5){
+    if(checkForStaff(choice) == 5){
         // logout
         start_application();
     }
@@ -407,17 +405,16 @@ void add_scores_and_grades(string indexNumber)
         int choice;
         cout << "Please select: ";
         cin >> choice;
-        checkForScores(choice);
         
-        if(choice == 1){
+        if(checkForScores(choice) == 1){
             // Add IA marks
             add_IA(indexNumber);
         }else 
-        if(choice == 2) {
+        if(checkForScores(choice) == 2) {
             // add exams and grade
             add_course_grades(indexNumber);
         }else
-        if(choice == 3){
+        if(checkForScores(choice) == 3){
             // go back
             start_screen_for_staff(indexNumber);
         }
@@ -441,8 +438,8 @@ void add_IA(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+   
+    if(validateToContinue(choice) == 1){
         add_scores_and_grades(indexNumber);
     }
 
@@ -465,8 +462,8 @@ void add_course_grades(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         add_scores_and_grades(indexNumber);
     }
 }
@@ -487,8 +484,8 @@ void add_course(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         start_screen_for_staff(indexNumber);
     }
 }
@@ -508,8 +505,8 @@ void edit_course(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         start_screen_for_staff(indexNumber);
     }
 }
@@ -525,8 +522,8 @@ void remove_course(string indexNumber)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         start_screen_for_staff(indexNumber);
     }
 }
@@ -541,27 +538,26 @@ void start_screen_for_student(string indexNumber,string pin)
     cout << "1. Edit Student Profile\n2. View Courses\n3. Add courses\n4. Remove Course\n5. Logout\n";
     int choice;
     cout << "Please select: ";
-    cin >> choice;
-    checkForStudent(choice);
+    cin >> choice;;
 
-    if(choice == 1) {
+    if(checkForStudent(choice) == 1) {
         // edit student details
         edit_student_details(indexNumber,pin);
 
     }else
-    if(choice == 2){
+    if(checkForStudent(choice) == 2){
         // view courses
         view_student_courses(indexNumber,pin);
     }else
-    if(choice == 3) {
+    if(checkForStudent(choice) == 3) {
         // add course
         add_courses_student(indexNumber,pin);
     }else 
-    if(choice == 4) {
+    if(checkForStudent(choice) == 4) {
         // remove course
         remove_course_student(indexNumber,pin);
     }else
-    if(choice == 5) {
+    if(checkForStudent(choice) == 5) {
         // logout redirect back to start_screen
         start_application();
     }
@@ -578,9 +574,8 @@ void view_student_courses(string indexNumber,string pin)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         start_screen_for_student(indexNumber,pin);
     }
 
@@ -608,9 +603,8 @@ void edit_student_details(string indexNumber,string pin)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
-
-    if(choice == 1){
+    
+    if(validateToContinue(choice) == 1){
         start_screen_for_student(indexNumber,pin);
     }
 }
@@ -633,9 +627,8 @@ void add_courses_student(string indexNumber,string pin)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
 
-    if(choice == 1){
+    if(validateToContinue(choice) == 1){
         start_screen_for_student(indexNumber,pin);
     }
 
@@ -654,49 +647,43 @@ void remove_course_student(string id, string pin)
     int choice;
     cout << "Please enter 1 to continue: " ;
     cin >> choice;
-    validateToContinue(choice);
 
-    if(choice == 1){
+    if(validateToContinue(choice) == 1){
         start_screen_for_student(id,pin);
     }
     
 }
 
-void checkForAdmin(int a){
-    while(cin.fail() || a > 2 || a < 1){
-        cin.clear();
-        cin.ignore(200,'\n');
-        cout << "Please enter a valid number: ";
-        cin >> a;
-    }
-}
 
-void checkForStudent(int a){
+int checkForStudent(int a){
     while(cin.fail() || a > 5 || a < 1){
         cin.clear();
         cin.ignore(200,'\n');
         cout << "Please enter a valid number: ";
         cin >> a;
     }
+    return a;
 }
 
-void checkForStaff(int a){
+int checkForStaff(int a){
     while(cin.fail() || a > 5 || a < 1){
         cin.clear();
         cin.ignore(200,'\n');
         cout << "Please enter a valid number: ";
         cin >> a;
     }
+    return a;
 }
 
 
-void checkForScores(int a){
+int checkForScores(int a){
     while(cin.fail() || a > 3 || a < 1){
         cin.clear();
         cin.ignore(200,'\n');
         cout << "Please enter a valid number: ";
         cin >> a;
     }
+    return a;
 }
 
 string index_number_generator()
@@ -713,7 +700,7 @@ string pin_generator()
     return pin;
 }
 
-void validateToContinue(int a)
+int validateToContinue(int a)
 {
     while(cin.fail() || a!=1){
         cin.clear();
@@ -721,6 +708,7 @@ void validateToContinue(int a)
         cout << "Please enter 1: ";
         cin >> a;
     }
+    return a;
 }
 
 #endif //INCLUDES_H
